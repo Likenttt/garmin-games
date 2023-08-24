@@ -62,7 +62,7 @@ class FlappyBirdView extends Ui.View {
 
     pipes = height < 240 ? Engine.PIPES_NARROW : Engine.PIPES_NORMAL;
 
-    newPipe();
+    newPipe(height);
 
     if (Attention has :vibrate) {
       vibeProfile = [new Attention.VibeProfile(100, 50)];
@@ -78,13 +78,13 @@ class FlappyBirdView extends Ui.View {
     Ui.requestUpdate();
   }
 
-  function newPipe() {
+  function newPipe(height) {
     scoreCounted = false;
     hit = false;
     pipeX = 2 * width;
     pipeXMax = pipeX + Engine.PIPE_WIDTH;
     pipeVariant = Engine.getPipeVariant(pipes);
-    pipeVariantMax = pipeVariant + Engine.PIPE_HOLE;
+    pipeVariantMax = pipeVariant + Engine.PIPE_HOLE * height;
   }
 
   function onUpdate(dc) {
@@ -137,7 +137,7 @@ class FlappyBirdView extends Ui.View {
     pipeX -= Engine.PIPE_SPEED * dt * speedMultiplier;
     pipeXMax = pipeX + Engine.PIPE_WIDTH;
     if (pipeXMax < 0) {
-      newPipe();
+      newPipe(height);
     }
 
     // draw pipe

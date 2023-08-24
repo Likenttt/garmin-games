@@ -1,4 +1,4 @@
 <strings>
-    <string id="AppName">Flappy Bird</string>
-    <string id="Best">Best: </string>
+	<string id="AppName">Flappy Bird</string>
+	<string id="Best" scope="glance">Best: </string>
 </strings>

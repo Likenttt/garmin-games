@@ -2,25 +2,32 @@ using Toybox.WatchUi as Ui;
 using Engine;
 
 class BehaviorDelegate extends Ui.BehaviorDelegate {
+  function initialize() {
+    BehaviorDelegate.initialize();
+  }
 
-    function initialize() {
-        BehaviorDelegate.initialize();
-    }
-    
-    function onSelect() {
-    	jump();
-    	return true;
-    }
-    
-    function jump() {
-    	$.mPlayerSpeed -= Engine.PLAYER_JUMP_SPEED * 60;
-    }
+  function onSelect() {
+    jump();
+    return true;
+  }
 
-    function onMenu() {
-    	var menu = new Ui.Menu();
-    	menu.setTitle(Ui.loadResource(Rez.Strings.AppName));
-    	menu.addItem(Ui.loadResource(Rez.Strings.Best) + $.mBest, :Item1);
-        Ui.pushView(menu, new MenuDelegate(), Ui.SLIDE_UP);
-        return true;
-    }
+  //perhaps increase up accelerometer
+  function onPreviousPage() {
+    return true;
+  }
+  //perhaps increase gravity
+  function onNextPage() {
+    return true;
+  }
+
+  function jump() {
+    $.mPlayerSpeed -= Engine.PLAYER_JUMP_SPEED * 60;
+  }
+
+  function onMenu() {
+    var title = Ui.loadResource(Rez.Strings.AppName);
+    var best = Ui.loadResource(Rez.Strings.Best) + $.mBest;
+    Ui.pushView(new RecordView(title, best), new RecordDelegate(), Ui.SLIDE_UP);
+    return true;
+  }
 }
