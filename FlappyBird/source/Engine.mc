@@ -10,9 +10,9 @@ module Engine {
 
   const PLAYER_SPRITE_X_2 = 17;
   const PLAYER_SPRITE_Y_2 = 12;
-  const PLAYER_JUMP_SPEED = 0.0001; // px per milisecond
+  const PLAYER_JUMP_SPEED = 0.0016; // px per milisecond
 
-  const GRAVITY = 0.00001; // px per milisecond
+  const GRAVITY = 0.00016; // px per milisecond
 
   const PIPE_SPEED = 0.08; // px per milisecond
   const PIPE_WIDTH = 30;

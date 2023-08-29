@@ -29,6 +29,12 @@ class AppGlanceView extends WatchUi.GlanceView {
     //String resources in glance must have its scope Thanks jim_58_m
     var best = WatchUi.loadResource(Rez.Strings.Best) + $.mBest;
 
-    dc.drawText(me.glanceWidth * 0.3, me.glanceHeight / 2, 2, best, 4);
+    dc.drawText(
+      10,
+      me.glanceHeight / 2,
+      2,
+      best,
+      Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER
+    );
   }
 }
